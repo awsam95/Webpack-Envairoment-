@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWepbackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: "development",
@@ -17,8 +18,16 @@ module.exports = {
                     'style-loader',
                     'css-loader',
                     'sass-loader'
-                ]
-            }
-        ]
-    }
+                ],
+            },
+        ],
+    },
+
+    plugins: [
+        new HtmlWepbackPlugin ({
+            title: 'Webpack App',
+            filename: 'index.html',
+            template: 'src/template.html',
+        }),
+    ],
 }
